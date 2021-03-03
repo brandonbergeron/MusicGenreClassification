@@ -79,11 +79,15 @@ All of the Neural Networks performed well, and in an effort to boost their perfo
 
 ## Data Limitations and Constraints
 
-As with any Data Science problem, more data is usually better. While the models created performed well, there were obvious limitations when testing them on more outside data. With only 100 songs from each genre, the representation of variety within each genre is limited. Jazz music with guitar tended to be classified as Blues, and Rock music with a lighter instrumental interlude often classified as Reggae. These are subtle differences that may not be discernable to even a trained musician when presented with just a 3 second audio clip.
+As with any Data Science problem, more data is usually better. While the models created performed well, there were obvious limitations when testing them on more outside data. With only 100 songs from each genre, the representation of variety within each genre is limited. Jazz music with guitar tended to be classified as Blues, and Rock music with a lighter instrumental interlude often classified as Reggae. These are subtle differences that may not be discernable to even an experienced listener when presented with just a 3 second audio clip.
+
+Additionally, with the audio samples being segmented into ten 3-second pieces, their are almost certainly pieces of most songs in both the train and test data which was a problem I had overlooked until recently. 
 
 ## Future Work
 
+I started experimenting with audio data augmentation including some basic pitch/time shifting as well as the addition of light white noise, but was not able to find success in the limited time I dedicated to it. I would like to spend more time researching what types/methods of audio augmentation are effective for music classification, and see if I can implement them with any success. 
 
+In addition, there are a few aspects of the streamlit app I developed that need work. First, I would like to add the ability for the user to record indefinitely. Second, the recording process introduces quite a bit of white noise and other artifacts into the audio due to the downsampling from the laptop mic's sampling rate to the sampling rate of the dataset. I feel that data augmentation should improve the model's ability to predict on this altered sound, but my limited efforts have not been successful thus far. More effective data augmentation may solve this issue as well.
 
 
 ## Final Conclusions and Summary
