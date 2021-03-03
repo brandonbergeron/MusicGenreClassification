@@ -8,7 +8,7 @@ Brandon Bergeron | DSI-113020 | 03.01.2021
 #### - [Project Directory](https://github.com/brandonbergeron/MusicGenreClassification#project-directory)
 #### - [Executive Summary](https://github.com/brandonbergeron/MusicGenreClassification#executive-summary)
 #### - [Data Collection](https://github.com/brandonbergeron/MusicGenreClassification#data-collection)
-#### - [Data Cleaning and EDA](https://github.com/brandonbergeron/MusicGenreClassification#data-cleaning-and-eda)
+#### - [Data Cleaning and EDA](https://github.com/brandonbergeron/MusicGenreClassification#edafeature-extraction)
 #### - [Modeling](https://github.com/brandonbergeron/MusicGenreClassification#modeling)
 #### - [Data Limitations and Constraints](https://github.com/brandonbergeron/MusicGenreClassification#data-limitations-and-constraints)
 #### - [Future Work](https://github.com/brandonbergeron/MusicGenreClassification#future-work)
