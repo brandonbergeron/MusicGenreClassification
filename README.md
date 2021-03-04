@@ -34,18 +34,19 @@ Combining the fields of Music and Machine Learning has been something I have bee
 |   |__ 11-Model_Augment.ipynb
 |
 |__ data
-|   |__ mfcc_13_3s.json
+|   |__ test_mfcc_13_6s.json
+|   |__ train_mfcc_13_6s.json
 |
 |__ presentation
-|   |--jazz_harmonic.wav
-|   |--jazz_percussive.wav
-|   |--model.png
-|   |--piano_scale.jpg
+|   |__ jazz_harmonic.wav
+|   |__ jazz_percussive.wav
+|   |__ model.png
+|   |__ piano_scale.jpg
 |
 |__ models
-|   |-- first_model.h5
-|   |-- harm_perc1.h5
-|   |-- harm_perc_aug.h5
+|   |__ first_model.h5
+|   |__ harm_perc1.h5
+|   |__ harm_perc_aug.h5
 |
 |__ requirements.txt
 |__ streamlit.py
@@ -98,4 +99,4 @@ Lastly, this dataset is a valuable resource because of the fact that the music i
 
 ## Final Conclusions and Summary
 
-After devoting time to this project, Machine Learning appears to be a viable tool for music genre classification. I was able to improve upon the baseline score by 60 points, and classify music with up to 73% accuracy. However as a professional musician myself, I would like to recognize the subjectivity of music genres as a concept and suggest that music genre classification should be pursued in a more fluid manner allowing for more predictions and combinations of classes, rather than an attempt to separate music definitively. 
+After devoting time to this project, Machine Learning certainly appears to be a viable tool for successful music genre classification. I was able to improve upon the baseline score by over 60 points, and classify music with up to 73% accuracy. However as a professional musician myself, I would like to recognize the subjectivity of music genres as a concept and suggest that music genre classification should be pursued in a more fluid manner allowing for more predictions and combinations of classes, rather than an attempt to separate music definitively. 
