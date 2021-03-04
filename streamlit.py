@@ -49,6 +49,9 @@ def get_harm_perc(signal):
 def main():
     title = "Music Genre Classifier"
     st.title(title)
+    image = Image.open('./presentation/turntable-2154823_1920.jpg')
+    st.image(image, use_column_width=True)
+
 
     if st.button('Record'):
         with st.spinner('Recording...'):
