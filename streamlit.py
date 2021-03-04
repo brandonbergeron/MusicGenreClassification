@@ -8,11 +8,10 @@ from scipy.io.wavfile import write
 import scipy.signal as sps
 import sounddevice as sd
 
-signal = None
 RECORD_SR = 48_000
 DESIRED_SR = 22_050
 
-model = load_model('./models/harm_perc_1.h5')
+model = load_model('./models/harm_perc_aug.h5')
 
 labels = ['pop',
           'metal',
@@ -37,9 +36,11 @@ def get_harm_perc(signal):
     signal_harmonic, signal_percussive = librosa.effects.hpss(signal)
     
     mfcc_harmonic = librosa.feature.mfcc(signal_harmonic, n_mfcc=13).T
+    mfcc_harmonic = np.delete(mfcc_harmonic, -1, axis=0)
     mfcc_harmonic = mfcc_harmonic.reshape(1, mfcc_harmonic.shape[0], mfcc_harmonic.shape[1], 1)
     
     mfcc_percussive = librosa.feature.mfcc(signal_percussive, n_mfcc=13).T
+    mfcc_percussive = np.delete(mfcc_percussive, -1, axis=0)
     mfcc_percussive = mfcc_percussive.reshape(1, mfcc_percussive.shape[0], mfcc_percussive.shape[1])
 
 
@@ -51,11 +52,11 @@ def main():
 
     if st.button('Record'):
         with st.spinner('Recording...'):
-            signal = sd.rec(int(3*48000), samplerate=48000, channels=1, blocking=True, dtype='float64')
-            sd.wait()
+            signal = sd.rec(int(6*RECORD_SR), samplerate=RECORD_SR, channels=1, blocking=True, dtype='float64')
+            #sd.wait()
             signal = signal.reshape(signal.shape[0])
-            # st.write(signal.shape)
-            # st.write(signal)
+            #st.write(signal.shape)
+            #st.write(signal)
 
             new_num_samples = round(len(signal) * float(DESIRED_SR) / RECORD_SR)
             signal = sps.resample(signal, new_num_samples)
@@ -64,7 +65,7 @@ def main():
             # st.write(type(signal))
             # st.write(signal)
 
-            st.experimental_set_query_params(my_saved_result=signal)
+            st.experimental_set_query_params(signal=signal)
         
         st.success("Recording completed")
 
@@ -72,7 +73,9 @@ def main():
 
     if st.button('Play'):
         try:
-            signal = np.array(app_state["my_saved_result"], dtype='float')
+            signal = np.array(app_state["signal"], dtype='float')
+            # st.write(type(signal))
+            # st.write(signal.shape)
             temp_file = io.BytesIO()  
             write(temp_file, 22050, signal)  
             st.audio(temp_file, format='audio/wav')
@@ -81,7 +84,7 @@ def main():
 
     if st.button('Classify'):
         with st.spinner("Thinking..."):
-            signal = np.array(app_state["my_saved_result"], dtype='float')
+            signal = np.array(app_state["signal"], dtype='float')
             # st.write(type(signal))
             # st.write(signal.shape)
             # st.write(signal)
