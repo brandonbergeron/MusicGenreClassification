@@ -37,20 +37,20 @@ Combining the fields of Music and Machine Learning has been something I have bee
 |   |__ test_mfcc_13_6s.json
 |   |__ train_mfcc_13_6s.json
 |
+|__ models
+|   |__ first_model.h5
+|   |__ harm_perc1.h5
+|   |__ harm_perc_aug.h5
+|
 |__ presentation
 |   |__ jazz_harmonic.wav
 |   |__ jazz_percussive.wav
 |   |__ model.png
 |   |__ piano_scale.jpg
 |
-|__ models
-|   |__ first_model.h5
-|   |__ harm_perc1.h5
-|   |__ harm_perc_aug.h5
-|
+|__ README.md
 |__ requirements.txt
 |__ streamlit.py
-|__ README.md
 ```  
 
 ## Data Collection
